@@ -144,8 +144,15 @@ variables:
 .build@template:
   stage: test
   script:
-    - .gitlab-ci/run-test.sh
+    - .gitlab-ci/run-test.sh 2>&1 | tee /tmp/nm-test.log
+  after_script:
+    - mv /tmp/nm-test.log . || true
   dependencies: []
+  artifacts:
+    expire_in: 5 days
+    paths:
+      - nm-build-log
+
 
 #################################################################
 #                                                               #
