@@ -146,7 +146,6 @@ int n_dhcp4_c_connection_listen(NDhcp4CConnection *connection) {
                 return 0;
 
         c_assert(connection->state == N_DHCP4_C_CONNECTION_STATE_INIT ||
-                 connection->state == N_DHCP4_C_CONNECTION_STATE_DRAINING ||
                  connection->state == N_DHCP4_C_CONNECTION_STATE_UDP);
 
         if (connection->fd_packet >= 0) {
@@ -204,13 +203,11 @@ int n_dhcp4_c_connection_connect(NDhcp4CConnection *connection,
         if (r < 0)
                 return -errno;
 
-        r = packet_shutdown(connection->fd_packet);
-        if (r < 0) {
-                epoll_ctl(connection->fd_epoll, EPOLL_CTL_DEL, fd_udp, NULL);
-                return r;
-        }
+        r = epoll_ctl(connection->fd_epoll, EPOLL_CTL_DEL, connection->fd_packet, NULL);
+        c_assert(!r);
+        connection->fd_packet = c_close(connection->fd_packet);
 
-        connection->state = N_DHCP4_C_CONNECTION_STATE_DRAINING;
+        connection->state = N_DHCP4_C_CONNECTION_STATE_UDP;
         connection->fd_udp = fd_udp;
         fd_udp = -1;
         connection->client_ip = client->s_addr;
@@ -393,8 +390,7 @@ static int n_dhcp4_c_connection_udp_broadcast(NDhcp4CConnection *connection,
                                               NDhcp4Outgoing *message) {
         int r;
 
-        c_assert(connection->state == N_DHCP4_C_CONNECTION_STATE_DRAINING ||
-               connection->state == N_DHCP4_C_CONNECTION_STATE_UDP);
+        c_assert(connection->state == N_DHCP4_C_CONNECTION_STATE_UDP);
 
         r = n_dhcp4_c_socket_udp_broadcast(connection->fd_udp, message);
         if (r)
@@ -407,8 +403,7 @@ static int n_dhcp4_c_connection_udp_send(NDhcp4CConnection *connection,
                                          NDhcp4Outgoing *message) {
         int r;
 
-        c_assert(connection->state == N_DHCP4_C_CONNECTION_STATE_DRAINING ||
-               connection->state == N_DHCP4_C_CONNECTION_STATE_UDP);
+        c_assert(connection->state == N_DHCP4_C_CONNECTION_STATE_UDP);
 
         r = n_dhcp4_c_socket_udp_send(connection->fd_udp, message);
         if (r)
@@ -1163,29 +1158,6 @@ int n_dhcp4_c_connection_dispatch_io(NDhcp4CConnection *connection,
                 else if (r == N_DHCP4_E_MALFORMED)
                         return r;
                 return N_DHCP4_E_AGAIN;
-        case N_DHCP4_C_CONNECTION_STATE_DRAINING:
-                r = n_dhcp4_c_socket_packet_recv(connection->fd_packet,
-                                                 connection->scratch_buffer,
-                                                 sizeof(connection->scratch_buffer),
-                                                 &message);
-                if (!r)
-                        break;
-                else if (r == N_DHCP4_E_MALFORMED)
-                        return r;
-                else if (r != N_DHCP4_E_AGAIN)
-                        return N_DHCP4_E_AGAIN;
-
-                /*
-                 * The UDP socket is open and the packet socket has been shut down
-                 * and drained, clean up the packet socket and fall through to
-                 * dispatching the UDP socket.
-                 */
-                r = epoll_ctl(connection->fd_epoll, EPOLL_CTL_DEL, connection->fd_packet, NULL);
-                c_assert(!r);
-                connection->fd_packet = c_close(connection->fd_packet);
-                connection->state = N_DHCP4_C_CONNECTION_STATE_UDP;
-
-                /* fall-through */
         case N_DHCP4_C_CONNECTION_STATE_UDP:
                 r = n_dhcp4_c_socket_udp_recv(connection->fd_udp,
                                               connection->scratch_buffer,
