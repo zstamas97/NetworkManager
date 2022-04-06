@@ -49,8 +49,6 @@ int packet_recvfrom_udp(int sockfd,
                         size_t *n_transmittedp,
                         struct sockaddr_in *src);
 
-int packet_shutdown(int sockfd);
-
 /* inline helpers */
 
 static inline int packet_recv_udp(int sockfd,

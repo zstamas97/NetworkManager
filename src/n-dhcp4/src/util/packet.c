@@ -419,30 +419,3 @@ int packet_recvfrom_udp(int sockfd,
         return 0;
 }
 
-/**
- * packet_shutdown() - shutdown socket for future receive operations
- * @sockfd:     socket
- *
- * Partially emulates `shutdown(sockfd, SHUT_RD)`, in the sense that no
- * further packets may be queued on the socket. All packets that are
- * already queued will still be delivered, but once -EAGAIN is returned
- * we are guaranteed never to be able to read more packets in the future.
- *
- * Return: 0 on success, or a negative error code on failure.
- */
-int packet_shutdown(int sockfd) {
-        struct sock_filter filter[] = {
-                BPF_STMT(BPF_RET + BPF_K, 0), /* discard all packets */
-        };
-        struct sock_fprog fprog = {
-                .filter = filter,
-                .len = sizeof(filter) / sizeof(filter[0]),
-        };
-        int r;
-
-        r = setsockopt(sockfd, SOL_SOCKET, SO_ATTACH_FILTER, &fprog, sizeof(fprog));
-        if (r < 0)
-                return -errno;
-
-        return 0;
-}
