@@ -186,6 +186,20 @@ nm_utils_get_ip_config_method(NMConnection *connection, int addr_family)
     return method;
 }
 
+NMSettingIP4LinkLocal
+nm_utils_get_ip4_config_link_local(NMConnection *connection)
+{
+    NMSettingIP4Config   *s_ip4;
+    NMSettingIP4LinkLocal link_local;
+
+    s_ip4 = NM_SETTING_IP4_CONFIG(nm_connection_get_setting_ip4_config(connection));
+    if (!s_ip4)
+        return NM_SETTING_IP4_LL_DISABLED;
+
+    link_local = nm_setting_ip4_config_get_link_local(s_ip4);
+    return link_local;
+}
+
 gboolean
 nm_utils_connection_has_default_route(NMConnection *connection,
                                       int           addr_family,

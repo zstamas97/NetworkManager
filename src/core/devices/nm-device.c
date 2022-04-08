@@ -11705,11 +11705,14 @@ activate_stage3_ip_config_for_addr_family(NMDevice *self, int addr_family, const
         goto out_devip;
 
     if (IS_IPv4) {
+        if (nm_utils_get_ip4_config_link_local(connection) == NM_SETTING_IP4_LL_ENABLED)
+            _dev_ipll4_start(self);
+
         if (nm_streq(method, NM_SETTING_IP4_CONFIG_METHOD_AUTO))
             _dev_ipdhcpx_start(self, AF_INET);
-        else if (nm_streq(method, NM_SETTING_IP4_CONFIG_METHOD_LINK_LOCAL))
-            _dev_ipll4_start(self);
-        else if (nm_streq(method, NM_SETTING_IP4_CONFIG_METHOD_SHARED))
+        else if (nm_streq(method, NM_SETTING_IP4_CONFIG_METHOD_LINK_LOCAL)) {
+            /* pass */
+        } else if (nm_streq(method, NM_SETTING_IP4_CONFIG_METHOD_SHARED))
             _dev_ipshared4_start(self);
         else if (nm_streq(method, NM_SETTING_IP4_CONFIG_METHOD_DISABLED))
             priv->ip_data_x[IS_IPv4].is_disabled = TRUE;
