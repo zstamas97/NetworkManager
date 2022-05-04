@@ -356,6 +356,40 @@ verify(NMSetting *setting, NMConnection *connection, GError **error)
         return NM_SETTING_VERIFY_NORMALIZABLE;
     }
 
+    if (priv->link_local == NM_SETTING_IP4_LL_NONE) {
+        g_set_error_literal(error,
+                            NM_CONNECTION_ERROR,
+                            NM_CONNECTION_ERROR_INVALID_PROPERTY,
+                            _("link-local should not be undefined"));
+        g_prefix_error(error,
+                       "%s.%s: ",
+                       NM_SETTING_IP4_CONFIG_SETTING_NAME,
+                       NM_SETTING_IP4_CONFIG_LINK_LOCAL);
+        return NM_SETTING_VERIFY_NORMALIZABLE;
+    } else if (priv->link_local == NM_SETTING_IP4_LL_DISABLED
+               && nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_LINK_LOCAL)) {
+        g_set_error_literal(error,
+                            NM_CONNECTION_ERROR,
+                            NM_CONNECTION_ERROR_INVALID_PROPERTY,
+                            _("link-local=disabled and method=link-local is not consistent"));
+        g_prefix_error(error,
+                       "%s.%s: ",
+                       NM_SETTING_IP4_CONFIG_SETTING_NAME,
+                       NM_SETTING_IP4_CONFIG_LINK_LOCAL);
+        return NM_SETTING_VERIFY_NORMALIZABLE;
+    } else if (priv->link_local == NM_SETTING_IP4_LL_ENABLED
+               && nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_DISABLED)) {
+        g_set_error_literal(error,
+                            NM_CONNECTION_ERROR,
+                            NM_CONNECTION_ERROR_INVALID_PROPERTY,
+                            _("if link-local=enabled and method=disabled is not consistent"));
+        g_prefix_error(error,
+                       "%s.%s: ",
+                       NM_SETTING_IP4_CONFIG_SETTING_NAME,
+                       NM_SETTING_IP4_CONFIG_LINK_LOCAL);
+        return NM_SETTING_VERIFY_NORMALIZABLE;
+    }
+
     return TRUE;
 }
 
