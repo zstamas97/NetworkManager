@@ -4379,9 +4379,12 @@ set_option(NmCli                    *nmc,
                        &inf_flags,
                        NULL,
                        NULL);
+    if (!value && !allow_reset)
+        return TRUE;
+
     if (option && option->check_and_set) {
         return option->check_and_set(nmc, connection, option, value, error);
-    } else if (value || allow_reset) {
+    } else {
         return set_property(nmc->client,
                             connection,
                             setting_name,
