@@ -44,6 +44,7 @@ NM_GOBJECT_PROPERTIES_DEFINE(NMDhcpClient, PROP_CONFIG, );
 typedef struct _NMDhcpClientPrivate {
     NMDhcpClientConfig    config;
     const NML3ConfigData *l3cd;
+    const NML3ConfigData *l3cd_last;
     GSource              *no_lease_timeout_source;
     GSource              *watch_source;
     GBytes               *effective_client_id;
@@ -294,6 +295,33 @@ _no_lease_timeout_schedule(NMDhcpClient *self)
 
 /*****************************************************************************/
 
+static void
+_acd_notify_lease(NMDhcpClient *self, gboolean *out_acd_ready)
+{
+    NMDhcpClientPrivate        *priv = NM_DHCP_CLIENT_GET_PRIVATE(self);
+    const NMPlatformIP4Address *addr;
+
+    *out_acd_ready = TRUE;
+
+    if (!NM_IS_IPv4(priv->config.addr_family))
+        return;
+
+    if (!priv->l3cd)
+        return;
+
+    /* an IPv4 lease is always expected to have exactly one address. */
+    nm_assert(nm_l3_config_data_get_num_addresses(priv->l3cd, AF_INET) == 1);
+
+    if (priv->config.v4.acd_timeout_msec == 0)
+        return;
+
+    addr = NMP_OBJECT_CAST_IP4_ADDRESS(
+        nm_l3_config_data_get_first_obj(priv->l3cd, NMP_OBJECT_TYPE_IP4_ADDRESS, NULL));
+    nm_assert(addr);
+}
+
+/*****************************************************************************/
+
 void
 _nm_dhcp_client_notify(NMDhcpClient         *self,
                        NMDhcpClientEventType client_event_type,
@@ -301,6 +329,8 @@ _nm_dhcp_client_notify(NMDhcpClient         *self,
 {
     NMDhcpClientPrivate                     *priv = NM_DHCP_CLIENT_GET_PRIVATE(self);
     GHashTable                              *options;
+    gboolean                                 l3cd_changed;
+    gboolean                                 acd_ready;
     const int                                IS_IPv4     = NM_IS_IPv4(priv->config.addr_family);
     nm_auto_unref_l3cd const NML3ConfigData *l3cd_merged = NULL;
     char                                     sbuf1[NM_HASH_OBFUSCATE_PTR_STR_BUF_SIZE];
@@ -331,8 +361,7 @@ _nm_dhcp_client_notify(NMDhcpClient         *self,
           nm_dhcp_client_event_type_to_string(client_event_type),
           NM_PRINT_FMT_QUOTED2(l3cd, "", ", l3cd=", NM_HASH_OBFUSCATE_PTR_STR(l3cd, sbuf1)));
 
-    if (l3cd)
-        nm_l3_config_data_seal(l3cd);
+    nm_l3_config_data_seal(l3cd);
 
     if (client_event_type >= NM_DHCP_CLIENT_EVENT_TYPE_TIMEOUT)
         watch_cleanup(self);
@@ -347,28 +376,39 @@ _nm_dhcp_client_notify(NMDhcpClient         *self,
         }
     }
 
-    if (priv->l3cd == l3cd)
-        return;
-
     if (l3cd) {
         nm_clear_g_source_inst(&priv->no_lease_timeout_source);
-    } else {
-        if (priv->l3cd)
-            _no_lease_timeout_schedule(self);
-    }
+    } else
+        _no_lease_timeout_schedule(self);
 
     /* FIXME(l3cfg:dhcp): the API of NMDhcpClient is changing to expose a simpler API.
      * The internals like the state should not be exposed (or possibly dropped in large
      * parts). */
 
-    nm_l3_config_data_reset(&priv->l3cd, l3cd);
+    l3cd_changed = nm_l3_config_data_reset(&priv->l3cd, l3cd);
+
+    _acd_notify_lease(self, &acd_ready);
 
     options = l3cd ? nm_dhcp_lease_get_options(
                   nm_l3_config_data_get_dhcp_lease(l3cd, priv->config.addr_family))
                    : NULL;
 
+    if (_LOGI_ENABLED()) {
+        const char *addr = nm_g_hash_table_lookup(
+            options,
+            nm_dhcp_option_request_string_nm_ip_address(priv->config.addr_family));
+
+        _LOGI("state changed %s%s%s%s",
+              priv->l3cd ? "new lease" : "no lease",
+              NM_PRINT_FMT_QUOTED2(addr, ", address=", addr, ""),
+              acd_ready ? "" : ", acd pending");
+    }
+
+    if (!acd_ready)
+        return;
+
     if (_LOGD_ENABLED()) {
-        if (options) {
+        if (l3cd_changed && options) {
             gs_free const char **keys = NULL;
             guint                nkeys;
             guint                i;
@@ -381,35 +421,6 @@ _nm_dhcp_client_notify(NMDhcpClient         *self,
             }
         }
     }
-
-    if (_LOGI_ENABLED()) {
-        const char *req_str =
-            IS_IPv4 ? nm_dhcp_option_request_string(AF_INET, NM_DHCP_OPTION_DHCP4_NM_IP_ADDRESS)
-                    : nm_dhcp_option_request_string(AF_INET6, NM_DHCP_OPTION_DHCP6_NM_IP_ADDRESS);
-        const char *addr = nm_g_hash_table_lookup(options, req_str);
-
-        _LOGI("state changed %s%s%s%s",
-              priv->l3cd ? "new lease" : "no lease",
-              NM_PRINT_FMT_QUOTED(addr, ", address=", addr, "", ""));
-    }
-
-    /* FIXME(l3cfg:dhcp:acd): NMDhcpClient must also do ACD. It needs acd_timeout_msec
-     * as a configuration parameter (in NMDhcpClientConfig). When ACD is enabled,
-     * when a new lease gets announced, it must first use NML3Cfg to run ACD on the
-     * interface (the previous lease -- if any -- will still be used at that point).
-     * If ACD fails, we call nm_dhcp_client_decline() and try to get a different
-     * lease.
-     * If ACD passes, we need to notify the new lease, and the user (NMDevice) may
-     * then configure the address. We need to watch the configured addresses (in NML3Cfg),
-     * and if the address appears there, we need to accept the lease. That is complicated
-     * but necessary, because we can only accept the lease after we configured the
-     * address.
-     *
-     * As a whole, ACD is transparent for the user (NMDevice). It's entirely managed
-     * by NMDhcpClient. Note that we do ACD through NML3Cfg, which centralizes IP handling
-     * for one interface, so for example if the same address happens to be configured
-     * as a static address (bypassing ACD), then NML3Cfg is aware of that and signals
-     * immediate success. */
 
     if (nm_dhcp_client_can_accept(self) && client_event_type == NM_DHCP_CLIENT_EVENT_TYPE_BOUND
         && priv->l3cd

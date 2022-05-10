@@ -156,12 +156,17 @@ typedef struct {
 
     union {
         struct {
+            /* The address from the previous lease */
+            const char *last_address;
+
+            /* Whether to do ACD for the DHCPv4 address. With timeout zero, ACD
+             * is disabled. */
+            guint acd_timeout_msec;
+
             /* Set BOOTP broadcast flag in request packets, so that servers
              * will always broadcast replies. */
             bool request_broadcast : 1;
 
-            /* The address from the previous lease */
-            const char *last_address;
         } v4;
         struct {
             /* If set, the DUID from the connection is used; otherwise

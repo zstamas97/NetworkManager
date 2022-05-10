@@ -208,6 +208,14 @@ nm_dhcp_option_request_string(int addr_family, guint option)
     return nm_dhcp_option_get_name(nm_dhcp_option_find(addr_family, option));
 }
 
+static inline const char *
+nm_dhcp_option_request_string_nm_ip_address(int addr_family)
+{
+    return NM_IS_IPv4(addr_family)
+               ? nm_dhcp_option_request_string(AF_INET, NM_DHCP_OPTION_DHCP4_NM_IP_ADDRESS)
+               : nm_dhcp_option_request_string(AF_INET6, NM_DHCP_OPTION_DHCP6_NM_IP_ADDRESS);
+}
+
 void nm_dhcp_option_take_option(GHashTable *options, int addr_family, guint option, char *value);
 void
 nm_dhcp_option_add_option(GHashTable *options, int addr_family, guint option, const char *value);
