@@ -241,6 +241,7 @@ verify(NMSetting *setting, NMConnection *connection, GError **error)
 
     if (!NM_IN_SET(priv->link_local,
                    NM_SETTING_IP4_LL_AUTO,
+                   NM_SETTING_IP4_LL_DEFAULT,
                    NM_SETTING_IP4_LL_DISABLED,
                    NM_SETTING_IP4_LL_ENABLED)) {
         g_set_error(error,
