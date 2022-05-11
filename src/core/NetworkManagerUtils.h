@@ -10,15 +10,12 @@
 #include "nm-core-utils.h"
 #include "libnm-glib-aux/nm-dedup-multi.h"
 #include "nm-setting-ip-config.h"
-#include "nm-setting-ip4-config.h"
 #include "nm-setting-ip6-config.h"
 #include "libnm-platform/nm-platform.h"
 
 /*****************************************************************************/
 
 const char *nm_utils_get_ip_config_method(NMConnection *connection, int addr_family);
-
-NMSettingIP4LinkLocal nm_utils_get_ip4_config_link_local(NMConnection *connection);
 
 const char *nm_utils_get_shared_wifi_permission(NMConnection *connection);
 

@@ -143,7 +143,7 @@ nm_setting_ip4_config_get_dhcp_vendor_class_identifier(NMSettingIP4Config *setti
 NMSettingIP4LinkLocal
 nm_setting_ip4_config_get_link_local(NMSettingIP4Config *setting)
 {
-    g_return_val_if_fail(NM_IS_SETTING_IP4_CONFIG(setting), NM_SETTING_IP4_LL_NONE);
+    g_return_val_if_fail(NM_IS_SETTING_IP4_CONFIG(setting), NM_SETTING_IP4_LL_AUTO);
 
     return NM_SETTING_IP4_CONFIG_GET_PRIVATE(setting)->link_local;
 }
@@ -240,20 +240,30 @@ verify(NMSetting *setting, NMConnection *connection, GError **error)
     }
 
     if (!NM_IN_SET(priv->link_local,
-                   NM_SETTING_IP4_LL_NONE,
+                   NM_SETTING_IP4_LL_AUTO,
                    NM_SETTING_IP4_LL_DISABLED,
                    NM_SETTING_IP4_LL_ENABLED)) {
         g_set_error(error,
                     NM_CONNECTION_ERROR,
                     NM_CONNECTION_ERROR_INVALID_PROPERTY,
-                    _("%s=%d is invalid"),
-                    NM_SETTING_IP4_CONFIG_LINK_LOCAL,
-                    priv->link_local);
+                    _("property is invalid"));
         g_prefix_error(error,
                        "%s.%s: ",
                        NM_SETTING_IP4_CONFIG_SETTING_NAME,
                        NM_SETTING_IP4_CONFIG_LINK_LOCAL);
         return FALSE;
+    }
+    if (priv->link_local == NM_SETTING_IP4_LL_ENABLED
+        && nm_streq(method, NM_SETTING_IP4_CONFIG_METHOD_DISABLED)) {
+        g_set_error_literal(error,
+                            NM_CONNECTION_ERROR,
+                            NM_CONNECTION_ERROR_INVALID_PROPERTY,
+                            _("cannot enable link-local with ipv4.method=disabled"));
+        g_prefix_error(error,
+                       "%s.%s: ",
+                       NM_SETTING_IP4_CONFIG_SETTING_NAME,
+                       NM_SETTING_IP4_CONFIG_LINK_LOCAL);
+        return NM_SETTING_VERIFY_NORMALIZABLE;
     }
 
     if (priv->dhcp_client_id && !priv->dhcp_client_id[0]) {
@@ -353,40 +363,6 @@ verify(NMSetting *setting, NMConnection *connection, GError **error)
                        "%s.%s: ",
                        NM_SETTING_IP4_CONFIG_SETTING_NAME,
                        NM_SETTING_IP_CONFIG_MAY_FAIL);
-        return NM_SETTING_VERIFY_NORMALIZABLE;
-    }
-
-    if (priv->link_local == NM_SETTING_IP4_LL_NONE) {
-        g_set_error_literal(error,
-                            NM_CONNECTION_ERROR,
-                            NM_CONNECTION_ERROR_INVALID_PROPERTY,
-                            _("link-local should not be undefined"));
-        g_prefix_error(error,
-                       "%s.%s: ",
-                       NM_SETTING_IP4_CONFIG_SETTING_NAME,
-                       NM_SETTING_IP4_CONFIG_LINK_LOCAL);
-        return NM_SETTING_VERIFY_NORMALIZABLE;
-    } else if (priv->link_local == NM_SETTING_IP4_LL_DISABLED
-               && nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_LINK_LOCAL)) {
-        g_set_error_literal(error,
-                            NM_CONNECTION_ERROR,
-                            NM_CONNECTION_ERROR_INVALID_PROPERTY,
-                            _("link-local=disabled and method=link-local is not consistent"));
-        g_prefix_error(error,
-                       "%s.%s: ",
-                       NM_SETTING_IP4_CONFIG_SETTING_NAME,
-                       NM_SETTING_IP4_CONFIG_LINK_LOCAL);
-        return NM_SETTING_VERIFY_NORMALIZABLE;
-    } else if (priv->link_local == NM_SETTING_IP4_LL_ENABLED
-               && nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_DISABLED)) {
-        g_set_error_literal(error,
-                            NM_CONNECTION_ERROR,
-                            NM_CONNECTION_ERROR_INVALID_PROPERTY,
-                            _("if link-local=enabled and method=disabled is not consistent"));
-        g_prefix_error(error,
-                       "%s.%s: ",
-                       NM_SETTING_IP4_CONFIG_SETTING_NAME,
-                       NM_SETTING_IP4_CONFIG_LINK_LOCAL);
         return NM_SETTING_VERIFY_NORMALIZABLE;
     }
 
@@ -934,6 +910,11 @@ nm_setting_ip4_config_class_init(NMSettingIP4ConfigClass *klass)
      * to be obtained in addition to other addresses, such as those manually
      * configured or obtained from a DHCP server.
      *
+     * When set to "auto", the value is dependent on "ipv4.method".
+     * When set to "default", it honors the global connection default before
+     * falling back to "auto". Note that if "ipv4.method" is "disabled", then
+     * link local addressing is always disabled too. The default is "auto".
+     *
      * Since 1.40
      */
     _nm_setting_property_define_direct_int32(properties_override,
@@ -942,7 +923,7 @@ nm_setting_ip4_config_class_init(NMSettingIP4ConfigClass *klass)
                                              PROP_LINK_LOCAL,
                                              G_MININT32,
                                              G_MAXINT32,
-                                             NM_SETTING_IP4_LL_NONE,
+                                             NM_SETTING_IP4_LL_AUTO,
                                              NM_SETTING_PARAM_NONE,
                                              NMSettingIP4ConfigPrivate,
                                              link_local);

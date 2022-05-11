@@ -80,8 +80,9 @@ G_BEGIN_DECLS
 
 /**
  * NMSettingIP4LinkLocal:
- * @NM_SETTING_IP4_LL_NONE: default value
- * @NM_SETTING_IP4_LL_DISABLED: disable link-local protocol
+ * @NM_SETTING_IP4_LL_AUTO: special value which enables LL if "ipv4.method" is set to
+ *   "link-local".
+ * @NM_SETTING_IP4_LL_DISABLED: disable link-local protocol.
  * @NM_SETTING_IP4_LL_ENABLED: enable the link-local protocol regardless what other protocols
  * such as DHCP or manually assigned IP addresses might be active.
  *
@@ -90,9 +91,9 @@ G_BEGIN_DECLS
  * Since: 1.40
  */
 typedef enum {
-    NM_SETTING_IP4_LL_NONE     = -1,
-    NM_SETTING_IP4_LL_DISABLED = 0,
-    NM_SETTING_IP4_LL_ENABLED  = 1,
+    NM_SETTING_IP4_LL_AUTO     = 0,
+    NM_SETTING_IP4_LL_DISABLED = 2,
+    NM_SETTING_IP4_LL_ENABLED  = 3,
 } NMSettingIP4LinkLocal;
 
 typedef struct _NMSettingIP4ConfigClass NMSettingIP4ConfigClass;

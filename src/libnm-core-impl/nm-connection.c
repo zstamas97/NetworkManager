@@ -1197,13 +1197,11 @@ _supports_addr_family(NMConnection *self, int family)
 static gboolean
 _normalize_ip_config(NMConnection *self, GHashTable *parameters)
 {
-    NMSettingIPConfig    *s_ip4, *s_ip6;
-    NMSettingProxy       *s_proxy;
-    NMSetting            *setting;
-    gboolean              changed = FALSE;
-    guint                 num, i;
-    const char           *method;
-    NMSettingIP4LinkLocal ip4_link_local;
+    NMSettingIPConfig *s_ip4, *s_ip6;
+    NMSettingProxy    *s_proxy;
+    NMSetting         *setting;
+    gboolean           changed = FALSE;
+    guint              num, i;
 
     s_ip4   = nm_connection_get_setting_ip4_config(self);
     s_ip6   = nm_connection_get_setting_ip6_config(self);
@@ -1238,54 +1236,25 @@ _normalize_ip_config(NMConnection *self, GHashTable *parameters)
             nm_connection_add_setting(self, setting);
             changed = TRUE;
         } else {
-            method = nm_setting_ip_config_get_method(s_ip4);
-
             if (nm_setting_ip_config_get_gateway(s_ip4)
                 && nm_setting_ip_config_get_never_default(s_ip4)) {
                 g_object_set(s_ip4, NM_SETTING_IP_CONFIG_GATEWAY, NULL, NULL);
                 changed = TRUE;
             }
 
-            if (nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_DISABLED)
+            if (nm_streq0(nm_setting_ip_config_get_method(s_ip4),
+                          NM_SETTING_IP4_CONFIG_METHOD_DISABLED)
                 && !nm_setting_ip_config_get_may_fail(s_ip4)) {
                 g_object_set(s_ip4, NM_SETTING_IP_CONFIG_MAY_FAIL, TRUE, NULL);
                 changed = TRUE;
             }
 
             num = nm_setting_ip_config_get_num_addresses(s_ip4);
-            if (num > 1 && nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_SHARED)) {
+            if (num > 1
+                && nm_streq0(nm_setting_ip_config_get_method(s_ip4),
+                             NM_SETTING_IP4_CONFIG_METHOD_SHARED)) {
                 for (i = num - 1; i > 0; i--)
                     nm_setting_ip_config_remove_address(s_ip4, i);
-                changed = TRUE;
-            }
-
-            ip4_link_local = nm_setting_ip4_config_get_link_local(NM_SETTING_IP4_CONFIG(s_ip4));
-            if (ip4_link_local == NM_SETTING_IP4_LL_NONE) {
-                if (nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_LINK_LOCAL)) {
-                    g_object_set(s_ip4,
-                                 NM_SETTING_IP4_CONFIG_LINK_LOCAL,
-                                 NM_SETTING_IP4_LL_ENABLED,
-                                 NULL);
-                } else {
-                    g_object_set(s_ip4,
-                                 NM_SETTING_IP4_CONFIG_LINK_LOCAL,
-                                 NM_SETTING_IP4_LL_DISABLED,
-                                 NULL);
-                }
-                changed = TRUE;
-            } else if (ip4_link_local == NM_SETTING_IP4_LL_DISABLED
-                       && nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_LINK_LOCAL)) {
-                g_object_set(s_ip4,
-                             NM_SETTING_IP_CONFIG_METHOD,
-                             NM_SETTING_IP4_CONFIG_METHOD_DISABLED,
-                             NULL);
-                changed = TRUE;
-            } else if (ip4_link_local == NM_SETTING_IP4_LL_ENABLED
-                       && nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_DISABLED)) {
-                g_object_set(s_ip4,
-                             NM_SETTING_IP_CONFIG_METHOD,
-                             NM_SETTING_IP4_CONFIG_METHOD_LINK_LOCAL,
-                             NULL);
                 changed = TRUE;
             }
         }
