@@ -2839,6 +2839,8 @@ write_ip4_setting(NMConnection *connection,
     value = nm_setting_ip_config_get_dhcp_hostname(s_ip4);
     svSetValueStr(ifcfg, "DHCP_HOSTNAME", value);
 
+    //XXX: write ipv4.link-local setting
+
     value = nm_setting_ip4_config_get_dhcp_fqdn(NM_SETTING_IP4_CONFIG(s_ip4));
     svSetValueStr(ifcfg, "DHCP_FQDN", value);
 

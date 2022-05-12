@@ -1858,6 +1858,8 @@ make_ip4_setting(shvarFile *ifcfg,
         route_table = 0;
     }
 
+    //XXX: read ipv4.link-local setting
+
     g_object_set(s_ip4,
                  NM_SETTING_IP_CONFIG_METHOD,
                  method,
