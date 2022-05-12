@@ -1,0 +1,2 @@
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/cmake_gnutls/CMakeFiles/rebuild_cache.dir
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/cmake_gnutls/CMakeFiles/edit_cache.dir

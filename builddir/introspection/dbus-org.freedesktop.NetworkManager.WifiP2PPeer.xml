@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+]>
+<refentry id="gdbus-org.freedesktop.NetworkManager.WifiP2PPeer">
+  <refmeta>    <refentrytitle role="top_of_page" id="gdbus-interface-org-freedesktop-NetworkManager-WifiP2PPeer.top_of_page">org.freedesktop.NetworkManager.WifiP2PPeer</refentrytitle>
+  <indexterm zone="gdbus-interface-org-freedesktop-NetworkManager-WifiP2PPeer.top_of_page"><primary sortas="WifiP2PPeer">org.freedesktop.NetworkManager.WifiP2PPeer</primary></indexterm>
+  </refmeta>  <refnamediv>    <refname>org.freedesktop.NetworkManager.WifiP2PPeer</refname>    <refpurpose>Wi-Fi P2P Peer</refpurpose>  </refnamediv>  <refsect1 role="properties">
+    <title role="properties.title">Properties</title>
+    <synopsis>
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Name">Name</link>          readable   s
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Flags">Flags</link>         readable   u
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Manufacturer">Manufacturer</link>  readable   s
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Model">Model</link>         readable   s
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.ModelNumber">ModelNumber</link>   readable   s
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Serial">Serial</link>        readable   s
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.WfdIEs">WfdIEs</link>        readable   ay
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.HwAddress">HwAddress</link>     readable   s
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Strength">Strength</link>      readable   y
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.LastSeen">LastSeen</link>      readable   i
+</synopsis>
+  </refsect1>
+<refsect1 role="desc" id="gdbus-interface-org-freedesktop-NetworkManager-WifiP2PPeer">
+  <title role="desc.title">Description</title>
+  <para>      Since: 1.16
+</para>
+</refsect1>
+<refsect1 role="details" id="gdbus-properties-org.freedesktop.NetworkManager.WifiP2PPeer">
+  <title role="details.title">Property Details</title>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Name">
+  <title>The "Name" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Name"><primary sortas="WifiP2PPeer:Name">org.freedesktop.NetworkManager.WifiP2PPeer:Name</primary></indexterm>
+<programlisting>
+Name  readable   s
+</programlisting>
+<para>        Device name.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Flags">
+  <title>The "Flags" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Flags"><primary sortas="WifiP2PPeer:Flags">org.freedesktop.NetworkManager.WifiP2PPeer:Flags</primary></indexterm>
+<programlisting>
+Flags  readable   u
+</programlisting>
+<para>        Flags describing the capabilities of the access point.
+</para><para>        Returns: <link linkend="NM80211ApFlags">NM80211ApFlags</link>
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Manufacturer">
+  <title>The "Manufacturer" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Manufacturer"><primary sortas="WifiP2PPeer:Manufacturer">org.freedesktop.NetworkManager.WifiP2PPeer:Manufacturer</primary></indexterm>
+<programlisting>
+Manufacturer  readable   s
+</programlisting>
+<para>        The manufacturer of the Wi-Fi P2P peer.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Model">
+  <title>The "Model" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Model"><primary sortas="WifiP2PPeer:Model">org.freedesktop.NetworkManager.WifiP2PPeer:Model</primary></indexterm>
+<programlisting>
+Model  readable   s
+</programlisting>
+<para>        The model of the Wi-Fi P2P peer.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.ModelNumber">
+  <title>The "ModelNumber" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.ModelNumber"><primary sortas="WifiP2PPeer:ModelNumber">org.freedesktop.NetworkManager.WifiP2PPeer:ModelNumber</primary></indexterm>
+<programlisting>
+ModelNumber  readable   s
+</programlisting>
+<para>        The model number of the Wi-Fi P2P peer.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Serial">
+  <title>The "Serial" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Serial"><primary sortas="WifiP2PPeer:Serial">org.freedesktop.NetworkManager.WifiP2PPeer:Serial</primary></indexterm>
+<programlisting>
+Serial  readable   s
+</programlisting>
+<para>        The serial number of the Wi-Fi P2P peer.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.WfdIEs">
+  <title>The "WfdIEs" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.WfdIEs"><primary sortas="WifiP2PPeer:WfdIEs">org.freedesktop.NetworkManager.WifiP2PPeer:WfdIEs</primary></indexterm>
+<programlisting>
+WfdIEs  readable   ay
+</programlisting>
+<para>        The Wi-Fi Display Information Elements of the Wi-Fi P2P peer.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.HwAddress">
+  <title>The "HwAddress" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.HwAddress"><primary sortas="WifiP2PPeer:HwAddress">org.freedesktop.NetworkManager.WifiP2PPeer:HwAddress</primary></indexterm>
+<programlisting>
+HwAddress  readable   s
+</programlisting>
+<para>        The hardware address (BSSID) of the access point.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Strength">
+  <title>The "Strength" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.Strength"><primary sortas="WifiP2PPeer:Strength">org.freedesktop.NetworkManager.WifiP2PPeer:Strength</primary></indexterm>
+<programlisting>
+Strength  readable   y
+</programlisting>
+<para>        The current signal quality of the access point, in percent.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.LastSeen">
+  <title>The "LastSeen" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WifiP2PPeer.LastSeen"><primary sortas="WifiP2PPeer:LastSeen">org.freedesktop.NetworkManager.WifiP2PPeer:LastSeen</primary></indexterm>
+<programlisting>
+LastSeen  readable   i
+</programlisting>
+<para>        The timestamp (in CLOCK_BOOTTIME seconds) for the last time the access
+        point was found in scan results. A value of -1 means the access point has
+        never been found in scan results.
+</para><para>        Since: 1.16
+</para>
+</refsect2>
+</refsect1>
+</refentry>
+

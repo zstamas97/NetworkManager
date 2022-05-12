@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+]>
+<refentry id="gdbus-org.freedesktop.NetworkManager.WiMax.Nsp">
+  <refmeta>    <refentrytitle role="top_of_page" id="gdbus-interface-org-freedesktop-NetworkManager-WiMax-Nsp.top_of_page">org.freedesktop.NetworkManager.WiMax.Nsp</refentrytitle>
+  <indexterm zone="gdbus-interface-org-freedesktop-NetworkManager-WiMax-Nsp.top_of_page"><primary sortas=".WiMax.Nsp">org.freedesktop.NetworkManager.WiMax.Nsp</primary></indexterm>
+  </refmeta>  <refnamediv>    <refname>org.freedesktop.NetworkManager.WiMax.Nsp</refname>    <refpurpose>WiMax Network Service Provider</refpurpose>  </refnamediv>  <refsect1 role="properties">
+    <title role="properties.title">Properties</title>
+    <synopsis>
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.Name">Name</link>           readable   s
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.SignalQuality">SignalQuality</link>  readable   u
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.NetworkType">NetworkType</link>    readable   u
+</synopsis>
+  </refsect1>
+<refsect1 role="desc" id="gdbus-interface-org-freedesktop-NetworkManager-WiMax-Nsp">
+  <title role="desc.title">Description</title>
+  <para>      DEPRECATED: NetworkManager no longer supports WiMAX since version 1.2. This interface is no longer used.
+</para>
+</refsect1>
+<refsect1 role="details" id="gdbus-properties-org.freedesktop.NetworkManager.WiMax.Nsp">
+  <title role="details.title">Property Details</title>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.Name">
+  <title>The "Name" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.Name"><primary sortas=".WiMax.Nsp:Name">org.freedesktop.NetworkManager.WiMax.Nsp:Name</primary></indexterm>
+<programlisting>
+Name  readable   s
+</programlisting>
+<para>        The name of the NSP.
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.SignalQuality">
+  <title>The "SignalQuality" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.SignalQuality"><primary sortas=".WiMax.Nsp:SignalQuality">org.freedesktop.NetworkManager.WiMax.Nsp:SignalQuality</primary></indexterm>
+<programlisting>
+SignalQuality  readable   u
+</programlisting>
+<para>        The current signal quality of the NSP, in percent.
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.NetworkType">
+  <title>The "NetworkType" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-WiMax-Nsp.NetworkType"><primary sortas=".WiMax.Nsp:NetworkType">org.freedesktop.NetworkManager.WiMax.Nsp:NetworkType</primary></indexterm>
+<programlisting>
+NetworkType  readable   u
+</programlisting>
+<para>        The network type of the NSP.
+</para><para>        Returns: <link linkend="NMWimaxNspNetworkType">NMWimaxNspNetworkType</link>
+</para>
+</refsect2>
+</refsect1>
+</refentry>
+

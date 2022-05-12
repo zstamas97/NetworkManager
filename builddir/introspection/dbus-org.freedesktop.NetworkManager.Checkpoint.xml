@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+]>
+<refentry id="gdbus-org.freedesktop.NetworkManager.Checkpoint">
+  <refmeta>    <refentrytitle role="top_of_page" id="gdbus-interface-org-freedesktop-NetworkManager-Checkpoint.top_of_page">org.freedesktop.NetworkManager.Checkpoint</refentrytitle>
+  <indexterm zone="gdbus-interface-org-freedesktop-NetworkManager-Checkpoint.top_of_page"><primary sortas="Checkpoint">org.freedesktop.NetworkManager.Checkpoint</primary></indexterm>
+  </refmeta>  <refnamediv>    <refname>org.freedesktop.NetworkManager.Checkpoint</refname>    <refpurpose>Configuration and State Snapshot</refpurpose>  </refnamediv>  <refsect1 role="properties">
+    <title role="properties.title">Properties</title>
+    <synopsis>
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.Devices">Devices</link>          readable   ao
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.Created">Created</link>          readable   x
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.RollbackTimeout">RollbackTimeout</link>  readable   u
+</synopsis>
+  </refsect1>
+<refsect1 role="desc" id="gdbus-interface-org-freedesktop-NetworkManager-Checkpoint">
+  <title role="desc.title">Description</title>
+  <para>      A snapshot of NetworkManager state for a given device list
+</para>
+</refsect1>
+<refsect1 role="details" id="gdbus-properties-org.freedesktop.NetworkManager.Checkpoint">
+  <title role="details.title">Property Details</title>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.Devices">
+  <title>The "Devices" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.Devices"><primary sortas="Checkpoint:Devices">org.freedesktop.NetworkManager.Checkpoint:Devices</primary></indexterm>
+<programlisting>
+Devices  readable   ao
+</programlisting>
+<para>        Array of object paths for devices which are part of this
+        checkpoint.
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.Created">
+  <title>The "Created" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.Created"><primary sortas="Checkpoint:Created">org.freedesktop.NetworkManager.Checkpoint:Created</primary></indexterm>
+<programlisting>
+Created  readable   x
+</programlisting>
+<para>        The timestamp (in CLOCK_BOOTTIME milliseconds) of checkpoint creation.
+</para>
+</refsect2>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.RollbackTimeout">
+  <title>The "RollbackTimeout" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-Checkpoint.RollbackTimeout"><primary sortas="Checkpoint:RollbackTimeout">org.freedesktop.NetworkManager.Checkpoint:RollbackTimeout</primary></indexterm>
+<programlisting>
+RollbackTimeout  readable   u
+</programlisting>
+<para>        Timeout in seconds for automatic rollback, or zero.
+</para>
+</refsect2>
+</refsect1>
+</refentry>
+

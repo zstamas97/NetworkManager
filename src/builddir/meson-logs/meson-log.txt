@@ -1,0 +1,11 @@
+Build started at 2022-05-11T15:44:36.872855
+Main binary: /usr/bin/python3
+Build Options: 
+Python system: Linux
+The Meson build system
+Version: 0.53.2
+Source dir: /home/zsirost/projects/Network-Manager-git/NetworkManager/src
+Build dir: /home/zsirost/projects/Network-Manager-git/NetworkManager/src/builddir
+Build type: native build
+
+ERROR: First statement must be a call to project

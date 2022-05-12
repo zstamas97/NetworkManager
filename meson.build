@@ -537,15 +537,15 @@ crypto_gnutls_dep = dependency(
   version: '>= 2.12',
   required: false,
 )
-crypto = get_option('crypto')
-if crypto == 'nss'
-    assert(crypto_nss_dep.found(), 'Requires nss crypto support')
-    crypto_dep = crypto_nss_dep
-else
-    assert(crypto == 'gnutls', 'Unexpected setting "crypto=' + crypto + '"')
-    assert(crypto_gnutls_dep.found(), 'Requires gnutls crypto support')
-    crypto_dep = crypto_gnutls_dep
-endif
+ crypto = get_option('crypto')
+ if crypto == 'nss'
+     assert(crypto_nss_dep.found(), 'Requires nss crypto support')
+     crypto_dep = crypto_nss_dep
+ else
+     assert(crypto == 'gnutls', 'Unexpected setting "crypto=' + crypto + '"')
+     assert(crypto_gnutls_dep.found(), 'Requires gnutls crypto support')
+     crypto_dep = crypto_gnutls_dep
+ endif
 
 dbus_conf_dir = get_option('dbus_conf_dir')
 if dbus_conf_dir == ''

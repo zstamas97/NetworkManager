@@ -1,0 +1,7 @@
+[options]
+introspection = false
+ppp = false
+ovs = false
+
+[properties]
+

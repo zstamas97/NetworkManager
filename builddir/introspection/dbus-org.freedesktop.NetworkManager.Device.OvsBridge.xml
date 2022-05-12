@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+]>
+<refentry id="gdbus-org.freedesktop.NetworkManager.Device.OvsBridge">
+  <refmeta>    <refentrytitle role="top_of_page" id="gdbus-interface-org-freedesktop-NetworkManager-Device-OvsBridge.top_of_page">org.freedesktop.NetworkManager.Device.OvsBridge</refentrytitle>
+  <indexterm zone="gdbus-interface-org-freedesktop-NetworkManager-Device-OvsBridge.top_of_page"><primary sortas=".Device.OvsBridge">org.freedesktop.NetworkManager.Device.OvsBridge</primary></indexterm>
+  </refmeta>  <refnamediv>    <refname>org.freedesktop.NetworkManager.Device.OvsBridge</refname>    <refpurpose>OvsBridge Device</refpurpose>  </refnamediv>  <refsect1 role="properties">
+    <title role="properties.title">Properties</title>
+    <synopsis>
+<link linkend="gdbus-property-org-freedesktop-NetworkManager-Device-OvsBridge.Slaves">Slaves</link>  readable   ao
+</synopsis>
+  </refsect1>
+<refsect1 role="desc" id="gdbus-interface-org-freedesktop-NetworkManager-Device-OvsBridge">
+  <title role="desc.title">Description</title>
+  <para></para>
+</refsect1>
+<refsect1 role="details" id="gdbus-properties-org.freedesktop.NetworkManager.Device.OvsBridge">
+  <title role="details.title">Property Details</title>
+<refsect2 role="property" id="gdbus-property-org-freedesktop-NetworkManager-Device-OvsBridge.Slaves">
+  <title>The "Slaves" property</title>
+  <indexterm zone="gdbus-property-org-freedesktop-NetworkManager-Device-OvsBridge.Slaves"><primary sortas=".Device.OvsBridge:Slaves">org.freedesktop.NetworkManager.Device.OvsBridge:Slaves</primary></indexterm>
+<programlisting>
+Slaves  readable   ao
+</programlisting>
+<para>        DEPRECATED. Use the "Ports" property in
+        "org.freedesktop.NetworkManager.Device" instead which exists since
+        version NetworkManager 1.34.0.
+</para><para>        Since: 1.14
+</para>
+</refsect2>
+</refsect1>
+</refentry>
+

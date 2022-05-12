@@ -1,0 +1,1963 @@
+Build started at 2022-05-11T12:00:00.649943
+Main binary: /usr/bin/python3
+Build Options: -Dintrospection=false -Dppp=false -Dovs=false
+Python system: Linux
+The Meson build system
+Version: 0.53.2
+Source dir: /home/zsirost/projects/Network-Manager-git/NetworkManager
+Build dir: /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir
+Build type: native build
+Project name: NetworkManager
+Project version: 1.36.4
+No CFLAGS in the environment, not changing global flags.
+No LDFLAGS in the environment, not changing global flags.
+No CPPFLAGS in the environment, not changing global flags.
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckc.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckc.exe -pipe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckc.exe
+C compiler for the build machine: cc (gcc 9.4.0 "cc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C linker for the build machine: cc ld.bfd 2.34
+No CFLAGS in the environment, not changing global flags.
+No LDFLAGS in the environment, not changing global flags.
+No CPPFLAGS in the environment, not changing global flags.
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckc.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckc.exe -pipe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckc.exe
+C compiler for the host machine: cc (gcc 9.4.0 "cc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C linker for the host machine: cc ld.bfd 2.34
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+Program intltool-merge found: YES (/usr/bin/intltool-merge)
+Program perl found: YES (/usr/bin/perl)
+Program xsltproc found: YES (/usr/bin/xsltproc)
+Program /home/zsirost/projects/Network-Manager-git/NetworkManager/tools/check-exports.sh found: YES (/home/zsirost/projects/Network-Manager-git/NetworkManager/tools/check-exports.sh)
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp1i9mf9na
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp1i9mf9na/testfile.c -pipe -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("sys/auxv.h")
+          #error "Header 'sys/auxv.h' could not be found"
+         #endif
+        #else
+         #include <sys/auxv.h>
+        #endif
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Has header "sys/auxv.h" : YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp3vzq3h_j
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp3vzq3h_j/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp3vzq3h_j/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <sys/random.h>
+#include <limits.h>
+
+        #if defined __stub_getrandom || defined __stub___getrandom
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &getrandom;
+            long b = (long) a;
+            return (int) b;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Checking for function "getrandom" : YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph1ltcjp2
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph1ltcjp2/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph1ltcjp2/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <stdlib.h>
+                                                                           #include <unistd.h>
+                                                                           #include <signal.h>
+                                                                           #include <sys/wait.h>
+#include <limits.h>
+
+        #if defined __stub_pidfd_open || defined __stub___pidfd_open
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &pidfd_open;
+            long b = (long) a;
+            return (int) b;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph1ltcjp2/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph1ltcjp2/testfile.c:12:32: error: 'pidfd_open' undeclared (first use in this function)
+   12 |             void *a = (void*) &pidfd_open;
+      |                                ^~~~~~~~~~
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph1ltcjp2/testfile.c:12:32: note: each undeclared identifier is reported only once for each function it appears in
+
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmppu6z6wp4
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmppu6z6wp4/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmppu6z6wp4/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <stdlib.h>
+                                                                           #include <unistd.h>
+                                                                           #include <signal.h>
+                                                                           #include <sys/wait.h>
+        int main(void) {
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_pidfd_open)
+                #error "__builtin_pidfd_open not found"
+            #endif
+        #elif ! defined(pidfd_open)
+            /* Check for __builtin_pidfd_open only if no includes were added to the
+             * prefix above, which means no definition of pidfd_open can be found.
+             * We would always check for this, but we get false positives on
+             * MSYS2 if we do. Their toolchain is broken, but we can at least
+             * give them a workaround. */
+            #if 0
+                __builtin_pidfd_open;
+            #else
+                #error "No definition for __builtin_pidfd_open found in the prefix"
+            #endif
+        #endif
+        return 0;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmppu6z6wp4/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmppu6z6wp4/testfile.c:19:18: error: #error "No definition for __builtin_pidfd_open found in the prefix"
+   19 |                 #error "No definition for __builtin_pidfd_open found in the prefix"
+      |                  ^~~~~
+
+Checking for function "pidfd_open" : NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo58pvdhu
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo58pvdhu/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo58pvdhu/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <stdlib.h>
+                                                                                         #include <unistd.h>
+                                                                                         #include <signal.h>
+                                                                                         #include <sys/wait.h>
+#include <limits.h>
+
+        #if defined __stub_pidfd_send_signal || defined __stub___pidfd_send_signal
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &pidfd_send_signal;
+            long b = (long) a;
+            return (int) b;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo58pvdhu/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo58pvdhu/testfile.c:12:32: error: 'pidfd_send_signal' undeclared (first use in this function)
+   12 |             void *a = (void*) &pidfd_send_signal;
+      |                                ^~~~~~~~~~~~~~~~~
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo58pvdhu/testfile.c:12:32: note: each undeclared identifier is reported only once for each function it appears in
+
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp9mk8cgw0
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp9mk8cgw0/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp9mk8cgw0/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <stdlib.h>
+                                                                                         #include <unistd.h>
+                                                                                         #include <signal.h>
+                                                                                         #include <sys/wait.h>
+        int main(void) {
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_pidfd_send_signal)
+                #error "__builtin_pidfd_send_signal not found"
+            #endif
+        #elif ! defined(pidfd_send_signal)
+            /* Check for __builtin_pidfd_send_signal only if no includes were added to the
+             * prefix above, which means no definition of pidfd_send_signal can be found.
+             * We would always check for this, but we get false positives on
+             * MSYS2 if we do. Their toolchain is broken, but we can at least
+             * give them a workaround. */
+            #if 0
+                __builtin_pidfd_send_signal;
+            #else
+                #error "No definition for __builtin_pidfd_send_signal found in the prefix"
+            #endif
+        #endif
+        return 0;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp9mk8cgw0/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp9mk8cgw0/testfile.c:19:18: error: #error "No definition for __builtin_pidfd_send_signal found in the prefix"
+   19 |                 #error "No definition for __builtin_pidfd_send_signal found in the prefix"
+      |                  ^~~~~
+
+Checking for function "pidfd_send_signal" : NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpka_4uvic
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpka_4uvic/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpka_4uvic/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <stdlib.h>
+                                                                                     #include <unistd.h>
+                                                                                     #include <signal.h>
+                                                                                     #include <sys/wait.h>
+#include <limits.h>
+
+        #if defined __stub_rt_sigqueueinfo || defined __stub___rt_sigqueueinfo
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &rt_sigqueueinfo;
+            long b = (long) a;
+            return (int) b;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpka_4uvic/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpka_4uvic/testfile.c:12:32: error: 'rt_sigqueueinfo' undeclared (first use in this function)
+   12 |             void *a = (void*) &rt_sigqueueinfo;
+      |                                ^~~~~~~~~~~~~~~
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpka_4uvic/testfile.c:12:32: note: each undeclared identifier is reported only once for each function it appears in
+
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpd8bwtn7d
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpd8bwtn7d/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpd8bwtn7d/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <stdlib.h>
+                                                                                     #include <unistd.h>
+                                                                                     #include <signal.h>
+                                                                                     #include <sys/wait.h>
+        int main(void) {
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_rt_sigqueueinfo)
+                #error "__builtin_rt_sigqueueinfo not found"
+            #endif
+        #elif ! defined(rt_sigqueueinfo)
+            /* Check for __builtin_rt_sigqueueinfo only if no includes were added to the
+             * prefix above, which means no definition of rt_sigqueueinfo can be found.
+             * We would always check for this, but we get false positives on
+             * MSYS2 if we do. Their toolchain is broken, but we can at least
+             * give them a workaround. */
+            #if 0
+                __builtin_rt_sigqueueinfo;
+            #else
+                #error "No definition for __builtin_rt_sigqueueinfo found in the prefix"
+            #endif
+        #endif
+        return 0;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpd8bwtn7d/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpd8bwtn7d/testfile.c:19:18: error: #error "No definition for __builtin_rt_sigqueueinfo found in the prefix"
+   19 |                 #error "No definition for __builtin_rt_sigqueueinfo found in the prefix"
+      |                  ^~~~~
+
+Checking for function "rt_sigqueueinfo" : NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph_bnrduv
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph_bnrduv/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmph_bnrduv/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ 
+        #define secure_getenv meson_disable_define_of_secure_getenv
+        
+        #include <limits.h>
+        #undef secure_getenv
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char secure_getenv (void);
+        
+        #if defined __stub_secure_getenv || defined __stub___secure_getenv
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return secure_getenv ();
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Checking for function "secure_getenv" : YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqyqqqcxs
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqyqqqcxs/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqyqqqcxs/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ 
+        #define __secure_getenv meson_disable_define_of___secure_getenv
+        
+        #include <limits.h>
+        #undef __secure_getenv
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char __secure_getenv (void);
+        
+        #if defined __stub___secure_getenv || defined __stub_____secure_getenv
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return __secure_getenv ();
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /usr/bin/ld: /tmp/ccP2gSGM.o: in function `main':
+testfile.c:(.text+0x9): undefined reference to `__secure_getenv'
+collect2: error: ld returned 1 exit status
+
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpb_tmo56g
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpb_tmo56g/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpb_tmo56g/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ 
+        int main(void) {
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin___secure_getenv)
+                #error "__builtin___secure_getenv not found"
+            #endif
+        #elif ! defined(__secure_getenv)
+            /* Check for __builtin___secure_getenv only if no includes were added to the
+             * prefix above, which means no definition of __secure_getenv can be found.
+             * We would always check for this, but we get false positives on
+             * MSYS2 if we do. Their toolchain is broken, but we can at least
+             * give them a workaround. */
+            #if 1
+                __builtin___secure_getenv;
+            #else
+                #error "No definition for __builtin___secure_getenv found in the prefix"
+            #endif
+        #endif
+        return 0;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpb_tmo56g/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpb_tmo56g/testfile.c:14:17: error: '__builtin___secure_getenv' undeclared (first use in this function); did you mean '__builtin_fegetenv'?
+   14 |                 __builtin___secure_getenv;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 __builtin_fegetenv
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpb_tmo56g/testfile.c:14:17: note: each undeclared identifier is reported only once for each function it appears in
+
+Checking for function "__secure_getenv" : NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpt1tbaykj
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpt1tbaykj/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpt1tbaykj/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <malloc.h>
+                                                                                    #include <stdlib.h>
+#include <limits.h>
+
+        #if defined __stub_reallocarray || defined __stub___reallocarray
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &reallocarray;
+            long b = (long) a;
+            return (int) b;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Checking for function "reallocarray" : YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpc343wt5y
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpc343wt5y/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpc343wt5y/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <string.h>
+#include <limits.h>
+
+        #if defined __stub_explicit_bzero || defined __stub___explicit_bzero
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &explicit_bzero;
+            long b = (long) a;
+            return (int) b;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Checking for function "explicit_bzero" : YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpke8mmyb2
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpke8mmyb2/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpke8mmyb2/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <sys/mman.h>
+#include <limits.h>
+
+        #if defined __stub_memfd_create || defined __stub___memfd_create
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &memfd_create;
+            long b = (long) a;
+            return (int) b;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpke8mmyb2/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpke8mmyb2/testfile.c:9:32: error: 'memfd_create' undeclared (first use in this function)
+    9 |             void *a = (void*) &memfd_create;
+      |                                ^~~~~~~~~~~~
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpke8mmyb2/testfile.c:9:32: note: each undeclared identifier is reported only once for each function it appears in
+
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp0lhrista
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp0lhrista/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp0lhrista/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include <sys/mman.h>
+        int main(void) {
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_memfd_create)
+                #error "__builtin_memfd_create not found"
+            #endif
+        #elif ! defined(memfd_create)
+            /* Check for __builtin_memfd_create only if no includes were added to the
+             * prefix above, which means no definition of memfd_create can be found.
+             * We would always check for this, but we get false positives on
+             * MSYS2 if we do. Their toolchain is broken, but we can at least
+             * give them a workaround. */
+            #if 0
+                __builtin_memfd_create;
+            #else
+                #error "No definition for __builtin_memfd_create found in the prefix"
+            #endif
+        #endif
+        return 0;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp0lhrista/testfile.c: In function 'main':
+/home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp0lhrista/testfile.c:16:18: error: #error "No definition for __builtin_memfd_create found in the prefix"
+   16 |                 #error "No definition for __builtin_memfd_create found in the prefix"
+      |                  ^~~~~
+
+Checking for function "memfd_create" : NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp1qk5lik4
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp1qk5lik4/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp1qk5lik4/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include<stdio.h>
+        #include <sys/types.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(pid_t)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+4
+
+Program stderr:
+
+
+Checking for size of "pid_t" : 4
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplt2b48cx
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplt2b48cx/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplt2b48cx/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include<stdio.h>
+        #include <sys/types.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(uid_t)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+4
+
+Program stderr:
+
+
+Checking for size of "uid_t" : 4
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmps23k0gx1
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmps23k0gx1/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmps23k0gx1/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include<stdio.h>
+        #include <sys/types.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(gid_t)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+4
+
+Program stderr:
+
+
+Checking for size of "gid_t" : 4
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp7495f60u
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp7495f60u/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp7495f60u/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include<stdio.h>
+        #include <sys/types.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(dev_t)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Checking for size of "dev_t" : 8
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp35v_qy7c
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp35v_qy7c/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp35v_qy7c/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include<stdio.h>
+        #include <sys/types.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(ino_t)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Checking for size of "ino_t" : 8
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmprcjnifmy
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmprcjnifmy/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmprcjnifmy/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include<stdio.h>
+        #include <sys/time.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(time_t)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Checking for size of "time_t" : 8
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpruums_tf
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpruums_tf/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpruums_tf/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ #include<stdio.h>
+        #include <sys/resource.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(rlim_t)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Checking for size of "rlim_t" : 8
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp2qlc388m
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp2qlc388m/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp2qlc388m/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fdata-sections 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -fdata-sections: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp6hkzdvr8
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp6hkzdvr8/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp6hkzdvr8/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -ffunction-sections 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -ffunction-sections: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe83fmcol
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe83fmcol/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe83fmcol/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--fatal-warnings -Wl,--gc-sections 
+
+Code:
+ int main(void) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports link arguments -Wl,--gc-sections: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpwwb7qopz
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpwwb7qopz/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpwwb7qopz/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wall 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wall: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpvol7if56
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpvol7if56/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpvol7if56/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wextra 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wextra: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo2i73yr0
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo2i73yr0/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpo2i73yr0/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wdeclaration-after-statement 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wdeclaration-after-statement: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmphcq8bj5e
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmphcq8bj5e/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmphcq8bj5e/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wfloat-equal 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wfloat-equal: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpd99tq47m
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpd99tq47m/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpd99tq47m/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wformat-nonliteral 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wformat-nonliteral: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpw8rpyn9x
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpw8rpyn9x/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpw8rpyn9x/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wformat-security 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wformat-security: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmptr_45nmr
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmptr_45nmr/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmptr_45nmr/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wimplicit-function-declaration 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wimplicit-function-declaration: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplpj1y54e
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplpj1y54e/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplpj1y54e/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Winit-self 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Winit-self: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp76rm_v1a
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp76rm_v1a/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp76rm_v1a/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wlogical-op 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wlogical-op: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpzgpjdzaj
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpzgpjdzaj/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpzgpjdzaj/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wmissing-declarations 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wmissing-declarations: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp6mzh9p6v
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp6mzh9p6v/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp6mzh9p6v/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wmissing-include-dirs 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wmissing-include-dirs: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpjii2ii1p
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpjii2ii1p/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpjii2ii1p/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wmissing-prototypes 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpsqkktpsd
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpsqkktpsd/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpsqkktpsd/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wpointer-arith 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpcv2g78hu
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpcv2g78hu/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpcv2g78hu/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wshadow 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wshadow: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe1y6brdw
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe1y6brdw/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe1y6brdw/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wshift-negative-value 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wshift-negative-value: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp1af1a_gk
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp1af1a_gk/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp1af1a_gk/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wstrict-prototypes 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqqui6jgz
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqqui6jgz/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqqui6jgz/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wundef 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wundef: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpluz3lya6
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpluz3lya6/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpluz3lya6/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wvla 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wvla: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpdb4cpshr
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpdb4cpshr/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpdb4cpshr/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-duplicate-decl-specifier -Wduplicate-decl-specifier 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-duplicate-decl-specifier -Wduplicate-decl-specifier: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp0ca2c7_t
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp0ca2c7_t/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp0ca2c7_t/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-format-truncation -Wformat-truncation 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-format-truncation -Wformat-truncation: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpynjijksv
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpynjijksv/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpynjijksv/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-format-y2k -Wformat-y2k 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-format-y2k -Wformat-y2k: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpz6v9l4di
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpz6v9l4di/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpz6v9l4di/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-gnu-variable-sized-type-not-at-end -Wgnu-variable-sized-type-not-at-end 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc: error: unrecognized command line option '-Wgnu-variable-sized-type-not-at-end'
+
+Compiler for C supports arguments -Wno-gnu-variable-sized-type-not-at-end -Wgnu-variable-sized-type-not-at-end: NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp557wvb16
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp557wvb16/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp557wvb16/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-missing-field-initializers -Wmissing-field-initializers 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-missing-field-initializers -Wmissing-field-initializers: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp4rt0d53o
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp4rt0d53o/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp4rt0d53o/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-pragmas -Wpragmas 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-pragmas -Wpragmas: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpih8bsj3z
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpih8bsj3z/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpih8bsj3z/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-sign-compare -Wsign-compare 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-sign-compare -Wsign-compare: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpeuj90a1x
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpeuj90a1x/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpeuj90a1x/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-tautological-constant-out-of-range-compare -Wtautological-constant-out-of-range-compare 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc: error: unrecognized command line option '-Wtautological-constant-out-of-range-compare'
+
+Compiler for C supports arguments -Wno-tautological-constant-out-of-range-compare -Wtautological-constant-out-of-range-compare: NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplmpskyd9
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplmpskyd9/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplmpskyd9/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-unknown-pragmas -Wunknown-pragmas 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-unknown-pragmas -Wunknown-pragmas: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp52eqhj3z
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp52eqhj3z/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp52eqhj3z/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wno-unused-parameter -Wunused-parameter 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-unused-parameter -Wunused-parameter: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpud2x_nhu
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpud2x_nhu/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpud2x_nhu/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wparentheses-equality 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc: error: unrecognized command line option '-Wparentheses-equality'
+
+Compiler for C supports arguments -Wparentheses-equality: NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpvngytc5p
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpvngytc5p/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpvngytc5p/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wpointer-arith 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpigdury45
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpigdury45/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpigdury45/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wshadow 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wshadow: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpyxmg1i6s
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpyxmg1i6s/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpyxmg1i6s/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wstrict-prototypes 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpweiibjgs
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpweiibjgs/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpweiibjgs/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wtypedef-redefinition 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc: error: unrecognized command line option '-Wtypedef-redefinition'
+
+Compiler for C supports arguments -Wtypedef-redefinition: NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpzn5w0m7u
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpzn5w0m7u/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpzn5w0m7u/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wundef 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wundef: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplyppcur4
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplyppcur4/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplyppcur4/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wunknown-attributes 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc: error: unrecognized command line option '-Wunknown-attributes'; did you mean '-Wno-attributes'?
+
+Compiler for C supports arguments -Wunknown-attributes: NO 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpwi_q2byu
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpwi_q2byu/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpwi_q2byu/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fno-strict-aliasing 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -fno-strict-aliasing: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpxshz3_h4
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpxshz3_h4/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpxshz3_h4/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -Wimplicit-fallthrough 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wimplicit-fallthrough: YES 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpfabaky61
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpfabaky61/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpfabaky61/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Werror=implicit-fallthrough 
+
+Code:
+ 
+                 int main(int argc, char **argv) {
+                     int r = 0;
+                     switch (argc) {
+                     case 0:
+                         r++;
+                         /* fall-through */
+                     case 1:
+                         r++;
+                         break;
+                     }
+                     return r;
+                 }
+                 
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Checking if "-Werror=implicit-fallthrough" compiles: YES 
+meson.build:239: WARNING: Consider using the built-in warning_level option instead of using "-Wall".
+meson.build:239: WARNING: Consider using the built-in warning_level option instead of using "-Wextra".
+Pkg-config binary for MachineChoice.HOST is not cached.
+Pkg-config binary missing from cross or native file, or env var undefined.
+Trying a default pkg-config fallback at pkg-config
+Trying pkg-config binary pkg-config for machine MachineChoice.HOST at ['/usr/bin/pkg-config']
+Found pkg-config: /usr/bin/pkg-config (0.29.1)
+Determining dependency 'uuid' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion uuid` -> 0
+2.34.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags uuid` -> 0
+-I/usr/include/uuid
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config uuid --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -luuid
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config uuid --libs` -> 0
+-luuid
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqglxf0xu
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqglxf0xu/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpqglxf0xu/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 
+
+Code:
+ #include<stdio.h>
+        
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpw1br9ti5
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpw1br9ti5/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpw1br9ti5/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-linux-gnu/9/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/9/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/9/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Run-time dependency uuid found: YES 2.34.0
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libelogind' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libelogind` -> 1
+
+CMake binary for MachineChoice.HOST is not cached
+CMake binary missing from cross or native file, or env var undefined.
+Trying a default CMake fallback at cmake
+Trying CMake binary cmake for machine MachineChoice.HOST at ['/usr/bin/cmake']
+Found CMake: /usr/bin/cmake (3.16.3)
+Extracting basic cmake information
+Try CMake generator: auto
+No CXXFLAGS in the environment, not changing global flags.
+No LDFLAGS in the environment, not changing global flags.
+No CPPFLAGS in the environment, not changing global flags.
+Failed to find a fortran compiler for CMake. This might cause CMake to fail.
+Called `/usr/bin/cmake --trace-expand .` in /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/cmake_libelogind -> 0
+  -- Module search paths:    ['/', '/opt', '/usr', '/usr/local']
+  -- CMake root:             /usr/share/cmake-3.16
+  -- CMake architectures:    ['x86_64-linux-gnu']
+  -- CMake lib search paths: ['lib', 'lib32', 'lib64', 'libx32', 'share', 'lib/x86_64-linux-gnu']
+Preliminary CMake check failed. Aborting.
+Run-time dependency libelogind found: NO (tried pkgconfig and cmake)
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libudev' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libudev` -> 0
+245
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags libudev` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libudev --libs` -> 0
+-L/lib/x86_64-linux-gnu -ludev
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libudev --libs` -> 0
+-ludev
+Run-time dependency libudev found: YES 245
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'dbus-1' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion dbus-1` -> 0
+1.12.16
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags dbus-1` -> 0
+-I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config dbus-1 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -ldbus-1
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config dbus-1 --libs` -> 0
+-ldbus-1
+Run-time dependency dbus-1 found: YES 1.12.16
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libndp' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libndp` -> 0
+1.7
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags libndp` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libndp --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lndp
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libndp --libs` -> 0
+-lndp
+Run-time dependency libndp found: YES 1.7
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'jansson' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion jansson` -> 1
+
+CMake binary for MachineChoice.HOST is cached.
+Preliminary CMake check failed. Aborting.
+Run-time dependency jansson found: NO (tried pkgconfig and cmake)
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libsystemd' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libsystemd` -> 0
+245
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags libsystemd` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libsystemd --libs` -> 0
+-L/lib/x86_64-linux-gnu -lsystemd
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libsystemd --libs` -> 0
+-lsystemd
+Run-time dependency libsystemd found: YES 245
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libsystemd-login' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libsystemd-login` -> 1
+
+CMake binary for MachineChoice.HOST is cached.
+Preliminary CMake check failed. Aborting.
+Run-time dependency libsystemd-login found: NO (tried pkgconfig and cmake)
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'systemd' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion systemd` -> 0
+245
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags systemd` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config systemd --libs` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config systemd --libs` -> 0
+
+Run-time dependency systemd found: YES 245
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'gio-unix-2.0' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion gio-unix-2.0` -> 0
+2.64.6
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags gio-unix-2.0` -> 0
+-pthread -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config gio-unix-2.0 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lgio-2.0 -lgobject-2.0 -lglib-2.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config gio-unix-2.0 --libs` -> 0
+-lgio-2.0 -lgobject-2.0 -lglib-2.0
+Run-time dependency gio-unix-2.0 found: YES 2.64.6
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'gmodule-2.0' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion gmodule-2.0` -> 0
+2.64.6
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags gmodule-2.0` -> 0
+-pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config gmodule-2.0 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -Wl,--export-dynamic -lgmodule-2.0 -pthread -lglib-2.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config gmodule-2.0 --libs` -> 0
+-Wl,--export-dynamic -lgmodule-2.0 -pthread -lglib-2.0
+Run-time dependency gmodule-2.0 found: YES 2.64.6
+Running command: /usr/bin/test -e /etc/sysconfig/network-scripts
+--- stdout ---
+
+--- stderr ---
+
+
+Running command: /usr/bin/test -e /etc/SuSE-release
+--- stdout ---
+
+--- stderr ---
+
+
+Running command: /usr/bin/test -e /etc/debian_version
+--- stdout ---
+
+--- stderr ---
+
+
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpj63bdxcs
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpj63bdxcs/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpj63bdxcs/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -ldl -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(void) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Library dl found: YES
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'udev' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion udev` -> 0
+245
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags udev` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config udev --libs` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config udev --libs` -> 0
+
+Run-time dependency udev found: YES 245
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --variable=udevdir udev` -> 0
+/lib/udev
+Got pkgconfig variable udevdir : /lib/udev
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --variable=systemdsystemunitdir systemd` -> 0
+/lib/systemd/system
+Got pkgconfig variable systemdsystemunitdir : /lib/systemd/system
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libselinux' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libselinux` -> 0
+3.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags libselinux` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libselinux --libs` -> 0
+-L/usr/lib -lselinux
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libselinux --libs` -> 0
+-lselinux
+Run-time dependency libselinux found: YES 3.0
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'audit' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion audit` -> 0
+2.8.5
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags audit` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config audit --libs` -> 0
+-L/lib/x86_64-linux-gnu -laudit
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config audit --libs` -> 0
+-laudit
+Run-time dependency audit found: YES 2.8.5
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'polkit-gobject-1' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion polkit-gobject-1` -> 0
+0.105
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags polkit-gobject-1` -> 0
+-pthread -I/usr/include/polkit-1 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config polkit-gobject-1 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lpolkit-gobject-1 -lgio-2.0 -lgobject-2.0 -lglib-2.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config polkit-gobject-1 --libs` -> 0
+-lpolkit-gobject-1 -lgio-2.0 -lgobject-2.0 -lglib-2.0
+Run-time dependency polkit-gobject-1 found: YES 0.105
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --define-variable=prefix=/usr/local --variable=policydir polkit-gobject-1` -> 0
+/usr/local/share/polkit-1/actions/
+Got pkgconfig variable policydir : /usr/local/share/polkit-1/actions/
+Running command: /usr/bin/test -f /usr/libexec/polkit-agent-helper-1
+--- stdout ---
+
+--- stderr ---
+
+
+Running command: /usr/bin/test -f /usr/lib/polkit-1/polkit-agent-helper-1
+--- stdout ---
+
+--- stderr ---
+
+
+Running command: /usr/bin/test -f /usr/lib/policykit-1/polkit-agent-helper-1
+--- stdout ---
+
+--- stderr ---
+
+
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'nss' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion nss` -> 0
+3.49.1
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags nss` -> 0
+-I/usr/include/nss -I/usr/include/nspr
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config nss --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lnss3 -lnssutil3 -lsmime3 -lssl3 -lplds4 -lplc4 -lnspr4
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config nss --libs` -> 0
+-lnss3 -lnssutil3 -lsmime3 -lssl3 -lplds4 -lplc4 -lnspr4
+Run-time dependency nss found: YES 3.49.1
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'gnutls' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion gnutls` -> 1
+
+CMake binary for MachineChoice.HOST is cached.
+
+Determining dependency 'gnutls' with CMake executable '/usr/bin/cmake'
+Try CMake generator: auto
+No CXXFLAGS in the environment, not changing global flags.
+No LDFLAGS in the environment, not changing global flags.
+No CPPFLAGS in the environment, not changing global flags.
+Failed to find a fortran compiler for CMake. This might cause CMake to fail.
+Called `/usr/bin/cmake --trace-expand -DNAME=gnutls -DARCHS=x86_64-linux-gnu .` in /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/cmake_gnutls -> 0
+Run-time dependency gnutls found: NO (tried pkgconfig and cmake)
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --variable=datadir dbus-1` -> 0
+/usr/share
+Got pkgconfig variable datadir : /usr/share
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --define-variable=datadir=/usr/local/share --variable=interfaces_dir dbus-1` -> 0
+/usr/local/share/dbus-1/interfaces
+Got pkgconfig variable interfaces_dir : /usr/local/share/dbus-1/interfaces
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --define-variable=datadir=/usr/local/share --variable=system_bus_services_dir dbus-1` -> 0
+/usr/local/share/dbus-1/system-services
+Got pkgconfig variable system_bus_services_dir : /usr/local/share/dbus-1/system-services
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'mm-glib' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion mm-glib` -> 0
+1.16.6
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags mm-glib` -> 0
+-pthread -I/usr/include/libmm-glib -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/ModemManager
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config mm-glib --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lmm-glib -lgio-2.0 -lgobject-2.0 -lglib-2.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config mm-glib --libs` -> 0
+-lmm-glib -lgio-2.0 -lgobject-2.0 -lglib-2.0
+Run-time dependency mm-glib found: YES 1.16.6
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'mobile-broadband-provider-info' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion mobile-broadband-provider-info` -> 0
+20190618
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags mobile-broadband-provider-info` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config mobile-broadband-provider-info --libs` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config mobile-broadband-provider-info --libs` -> 0
+
+Run-time dependency mobile-broadband-provider-info found: YES 20190618
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --variable=database mobile-broadband-provider-info` -> 0
+/usr/share/mobile-broadband-provider-info/serviceproviders.xml
+Got pkgconfig variable database : /usr/share/mobile-broadband-provider-info/serviceproviders.xml
+Program dhclient found: YES (/usr/sbin/dhclient)
+Program dhcpcd found: NO
+Program /sbin/dhcpcd found: NO
+Program /usr/sbin/pppd/dhcpcd found: NO
+Program /usr/local/sbin/dhcpcd found: NO
+Message: dhcpcd not found, assume path /usr/sbin/dhcpcd
+Program dhcpcanon found: NO
+Program /sbin/dhcpcanon found: NO
+Program /usr/sbin/pppd/dhcpcanon found: NO
+Program /usr/local/sbin/dhcpcanon found: NO
+Message: dhcpcanon not found, assume path /usr/sbin/dhcpcanon
+Program resolvconf found: NO
+Program /usr/resolvconf found: NO
+Program /usr/sbin/resolvconf found: NO
+Program /usr/local/sbin/resolvconf found: NO
+Program netconfig found: NO
+Program /usr/netconfig found: NO
+Program /usr/sbin/netconfig found: NO
+Program /usr/local/sbin/netconfig found: NO
+Program iptables found: YES (/usr/sbin/iptables)
+Program nft found: NO
+Program /sbin/nft found: NO
+Program /usr/sbin/nft found: NO
+Program dnsmasq found: YES (/usr/sbin/dnsmasq)
+Program dnssec_trigger found: NO
+Program /usr/local/libexec/dnssec_trigger found: NO
+Program /usr/local/lib/dnssec_trigger found: NO
+Program /usr/local/lib/dnssec-trigger/dnssec_trigger found: NO
+Program /usr/libexec/dnssec_trigger found: NO
+Program /usr/lib/dnssec_trigger found: NO
+Program /usr/lib/dnssec-trigger/dnssec_trigger found: NO
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libpsl' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libpsl` -> 0
+0.21.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags libpsl` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libpsl --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lpsl
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libpsl --libs` -> 0
+-lpsl
+Run-time dependency libpsl found: YES 0.21.0
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libcurl' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libcurl` -> 0
+7.68.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags libcurl` -> 0
+-I/usr/include/x86_64-linux-gnu
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libcurl --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lcurl
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libcurl --libs` -> 0
+-lcurl
+Run-time dependency libcurl found: YES 7.68.0
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpjuvy3uuc
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpjuvy3uuc/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpjuvy3uuc/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lreadline -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(void) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Library readline found: YES
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libnewt' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion libnewt` -> 0
+0.52.21
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags libnewt` -> 0
+
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libnewt --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lnewt
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config libnewt --libs` -> 0
+-lnewt
+Run-time dependency libnewt found: YES 0.52.21
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp2qv5_vpu
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp2qv5_vpu/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmp2qv5_vpu/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ int foo(void); static const char *const buf[1] = { "a" }; int foo() { int a = 0; int b = _Generic (a, int: 4) + _Generic(buf, const char *const*: 5); return b + a; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplvvn7hwl
+Command line:  cc /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplvvn7hwl/testfile.c -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmplvvn7hwl/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 
+
+Code:
+ int main() { int a = 0; __auto_type b = a; return b + a; };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program /home/zsirost/projects/Network-Manager-git/NetworkManager/tools/check-gitlab-ci.sh found: YES (/home/zsirost/projects/Network-Manager-git/NetworkManager/tools/check-gitlab-ci.sh)
+Adding test "check-local-gitlab-ci"
+Program /home/zsirost/projects/Network-Manager-git/NetworkManager/tools/check-tree.sh found: YES (/home/zsirost/projects/Network-Manager-git/NetworkManager/tools/check-tree.sh)
+Adding test "check-tree"
+Program /home/zsirost/projects/Network-Manager-git/NetworkManager/tools/run-nm-test.sh found: YES (/home/zsirost/projects/Network-Manager-git/NetworkManager/tools/run-nm-test.sh)
+DEPRECATION: Project targeting '>= 0.47.2' but tried to use feature deprecated since '0.48.0': python3 module
+Pkg-config binary for MachineChoice.BUILD is not cached.
+Pkg-config binary missing from cross or native file, or env var undefined.
+Trying a default pkg-config fallback at pkg-config
+Trying pkg-config binary pkg-config for machine MachineChoice.BUILD at ['/usr/bin/pkg-config']
+Found pkg-config: /usr/bin/pkg-config (0.29.1)
+Determining dependency 'glib-2.0' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion glib-2.0` -> 0
+2.64.6
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags glib-2.0` -> 0
+-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config glib-2.0 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lglib-2.0
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config glib-2.0 --libs` -> 0
+-lglib-2.0
+Configuring nm-version-macros.h using configuration
+Adding test "check-local-exports-libnm"
+Configuring settings-docs.h using configuration
+src/libnmc-setting/meson.build:34: WARNING: Got an empty configuration_data() object and found no substitutions in the input file 'settings-docs.h.in'. If you want to copy a file to the build dir, use the 'copy:' keyword argument added in 0.47.0
+Configuring generate-docs-nm-settings-nmcli.xml using configuration
+src/nmcli/meson.build:92: WARNING: Got an empty configuration_data() object and found no substitutions in the input file 'generate-docs-nm-settings-nmcli.xml.in'. If you want to copy a file to the build dir, use the 'copy:' keyword argument added in 0.47.0
+Configuring org.freedesktop.nm_dispatcher.service using configuration
+Configuring org.freedesktop.nm_priv_helper.service using configuration
+Adding test "dnsmasq/test-dnsmasq-utils"
+Adding test "ndisc/test-ndisc-fake"
+Adding test "platform/test-address-fake"
+Adding test "platform/test-address-linux"
+Adding test "platform/test-cleanup-fake"
+Adding test "platform/test-cleanup-linux"
+Adding test "platform/test-link-fake"
+Adding test "platform/test-link-linux"
+Adding test "platform/test-nmp-object"
+Adding test "platform/test-platform-general"
+Adding test "platform/test-route-fake"
+Adding test "platform/test-route-linux"
+Adding test "platform/test-tc-linux"
+Adding test "supplicant/test-supplicant-config"
+Adding test "config/test-config"
+Adding test "test-core"
+Adding test "test-core-with-expect"
+Adding test "test-dcb"
+Adding test "test-l3cfg"
+Adding test "test-utils"
+Adding test "test-wired-defname"
+Adding test "test-systemd"
+Adding test "dhcp/test-dhcp-dhclient"
+Adding test "dhcp/test-dhcp-utils"
+Adding test "check-local-devices-adsl"
+Adding test "check-wwan"
+WARNING: target links against shared modules. This is not
+recommended as it is not supported on some platforms
+Adding test "wwan/test-service-providers"
+WARNING: target links against shared modules. This is not
+recommended as it is not supported on some platforms
+WARNING: target links against shared modules. This is not
+recommended as it is not supported on some platforms
+Adding test "check-local-devices-bluetooth"
+WARNING: target links against shared modules. This is not
+recommended as it is not supported on some platforms
+Adding test "check-local-devices-wifi"
+Adding test "test-devices-wifi"
+Adding test "devices/test-lldp"
+Adding test "ifupdown/test-ifupdown"
+Adding test "test-keyfile-settings"
+Adding test "sym/libnm-device-plugin-adsl.so"
+Adding test "sym/libnm-wwan.so"
+Adding test "sym/libnm-device-plugin-wwan.so"
+Adding test "sym/libnm-device-plugin-bluetooth.so"
+Adding test "sym/libnm-device-plugin-wifi.so"
+Adding test "sym/libnm-settings-plugin-ifupdown.so"
+Program /home/zsirost/projects/Network-Manager-git/NetworkManager/tools/check-config-options.sh found: YES (/home/zsirost/projects/Network-Manager-git/NetworkManager/tools/check-config-options.sh)
+Adding test "check-config-options"
+Adding test "src/libnm-glib-aux/tests/test-shared-general"
+Adding test "src/libnm-platform/tests/test-nm-platform"
+Adding test "src/libnm-core-impl/tests/test-compare"
+Adding test "src/libnm-core-impl/tests/test-crypto"
+Adding test "src/libnm-core-impl/tests/test-general"
+Adding test "src/libnm-core-impl/tests/test-keyfile"
+Adding test "src/libnm-core-impl/tests/test-secrets"
+Adding test "src/libnm-core-impl/tests/test-setting"
+Adding test "src/libnm-core-impl/tests/test-settings-defaults"
+Adding test "src/libnm-client-impl/tests/test-libnm"
+Adding test "src/libnm-client-impl/tests/test-nm-client"
+Adding test "src/libnm-client-impl/tests/test-remote-settings-client"
+Adding test "src/libnm-client-impl/tests/test-secret-agent"
+Adding test "src/libnm-client-aux-extern/tests/test-libnm-client-aux"
+Adding test "src/libnmc-setting/tests/test-libnmc-setting"
+Adding test "src/nm-dispatcher/tests/test-dispatcher-envp"
+Adding test "nm-initrd-generator/tests/test-dt-reader"
+Adding test "nm-initrd-generator/tests/test-ibft-reader"
+Adding test "nm-initrd-generator/tests/test-cmdline-reader"
+Program /home/zsirost/projects/Network-Manager-git/NetworkManager/src/tests/client/test-client.sh found: YES (/home/zsirost/projects/Network-Manager-git/NetworkManager/src/tests/client/test-client.sh)
+Adding test "check-local-tests-client"
+Configuring server.conf using configuration
+Configuring NetworkManager-dispatcher.service using configuration
+Configuring NetworkManager.service using configuration
+Configuring nm-priv-helper.service using configuration
+Configuring NetworkManager-wait-online.service using configuration
+Configuring org.freedesktop.NetworkManager.policy.in using configuration
+No CXXFLAGS in the environment, not changing global flags.
+No LDFLAGS in the environment, not changing global flags.
+No CPPFLAGS in the environment, not changing global flags.
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckcpp.cc -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckcpp.exe -pipe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckcpp.exe
+C++ compiler for the build machine: c++ (gcc 9.4.0 "c++ (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C++ linker for the build machine: c++ ld.bfd 2.34
+No CXXFLAGS in the environment, not changing global flags.
+No LDFLAGS in the environment, not changing global flags.
+No CPPFLAGS in the environment, not changing global flags.
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckcpp.cc -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckcpp.exe -pipe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/sanitycheckcpp.exe
+C++ compiler for the host machine: c++ (gcc 9.4.0 "c++ (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C++ linker for the host machine: c++ ld.bfd 2.34
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'QtCore' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion QtCore` -> 0
+4.8.7
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags QtCore` -> 0
+-DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtCore
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config QtCore --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lQtCore
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config QtCore --libs` -> 0
+-lQtCore
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpyjn25bj9
+Command line:  c++ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpyjn25bj9/testfile.cpp -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpyjn25bj9/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive 
+
+Code:
+ #include<stdio.h>
+        
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe1c2lek5
+Command line:  c++ /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe1c2lek5/testfile.cpp -o /home/zsirost/projects/Network-Manager-git/NetworkManager/builddir/meson-private/tmpe1c2lek5/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-linux-gnu/9/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/9/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/9/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Run-time dependency qtcore found: YES 4.8.7
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'QtDBus' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion QtDBus` -> 0
+4.8.7
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags QtDBus` -> 0
+-DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtDBus -I/usr/include/qt4 -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I/usr/include/qt4/QtCore
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config QtDBus --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lQtDBus -lQtXml -lQtCore
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config QtDBus --libs` -> 0
+-lQtDBus -lQtXml -lQtCore
+Run-time dependency qtdbus found: YES 4.8.7
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'QtNetwork' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --modversion QtNetwork` -> 0
+4.8.7
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config --cflags QtNetwork` -> 0
+-DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtNetwork -I/usr/include/qt4 -I/usr/include/qt4/QtCore
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config QtNetwork --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lQtNetwork -lQtCore
+PKG_CONFIG_PATH: 
+Called `/usr/bin/pkg-config QtNetwork --libs` -> 0
+-lQtNetwork -lQtCore
+Run-time dependency qtnetwork found: YES 4.8.7
+Program moc-qt4 found: YES (/usr/bin/moc-qt4)
+Configuring config.h using configuration
+Configuring config-extra.h using configuration
+Program tools/meson-post-install.sh found: YES (/home/zsirost/projects/Network-Manager-git/NetworkManager/tools/meson-post-install.sh)
+Message: 
+System paths:
+  prefix: /usr/local
+  exec_prefix: /usr/local
+  systemdunitdir: /lib/systemd/system
+  nmbinary: /usr/local/sbin/NetworkManager
+  nmconfdir: /usr/local/etc/NetworkManager
+  nmlibdir: /usr/local/lib/NetworkManager
+  nmdatadir: /usr/local/share/NetworkManager
+  nmstatedir: /var/local/lib/NetworkManager
+  nmrundir: /var/local/run/NetworkManager
+  nmvpndir: /usr/local/lib/x86_64-linux-gnu/NetworkManager
+  nmplugindir: /usr/local/lib/x86_64-linux-gnu/NetworkManager/1.36.4
+  system-ca-path: /etc/ssl/certs
+
+Platform:
+  session tracking: systemd-logind,consolekit
+  suspend/resume: systemd
+  policykit: true (default: true) (restrictive modify.system)
+  polkit-agent-helper-1: /usr/lib/policykit-1/polkit-agent-helper-1
+  selinux: true
+  systemd-journald: true (default: logging.backend=journal)
+  hostname persist: default
+  libaudit: true (default: logging.audit=true)
+
+Features:
+  wext: true
+  wifi: true
+  iwd:  false
+  pppd: false
+  jansson: no
+  iptables: "/usr/sbin/iptables"
+  nft: "/usr/sbin/nft"
+  modemmanager-1: true
+  ofono: false
+  concheck: true
+  libteamdctl: false
+  ovs: false
+  nmcli: true
+  nmtui: true
+  nm-cloud-setup: false
+
+Configuration_plugins (main.plugins=)
+  ifcfg-rh: false
+  ifupdown: true
+
+Handlers for /etc/resolv.conf:
+  resolvconf: false
+  netconfig: false
+
+  config-dns-rc-manager-default: auto
+
+DHCP clients (default internal):
+  dhclient: true /usr/sbin/dhclient
+  dhcpcd: true /usr/sbin/dhcpcd
+  dhcpcanon: true /usr/sbin/dhcpcanon
+
+
+Miscellaneous:
+  have introspection: false
+  build documentation and manpages: false
+  firewalld zone for shared mode: true
+  tests: yes
+  more-asserts: 0
+  more-logging: true
+  warning-level: 1
+  valgrind: false
+  code coverage: false
+  LTO: false
+  Linker garbage collection: true
+  crypto: nss
+  sanitizers: none
+  Mozilla Public Suffix List: true
+  vapi: false
+  ebpf: false
+  readline: libreadline
+
+Build targets in project: 279
+WARNING: Deprecated features used:
+ * 0.48.0: {'python3 module'}
+
+Found ninja-1.10.0 at /usr/bin/ninja
