@@ -1016,6 +1016,7 @@ nmc_cleanup(NmCli *nmc)
 int
 main(int argc, char *argv[])
 {
+    
     /* Set locale to use environment variables */
     setlocale(LC_ALL, "");
 
@@ -1035,8 +1036,10 @@ main(int argc, char *argv[])
     g_unix_signal_add(SIGTERM, signal_handler, GINT_TO_POINTER(SIGTERM));
     g_unix_signal_add(SIGINT, signal_handler, GINT_TO_POINTER(SIGINT));
 
-    if (process_command_line(&nm_cli, argc, argv))
+    if (process_command_line(&nm_cli, argc, argv)){
         g_main_loop_run(loop);
+    }
+        
 
     if (nm_cli.complete) {
         /* Remove error statuses from command completion runs. */
@@ -1049,6 +1052,6 @@ main(int argc, char *argv[])
 
     nmc_cleanup(&nm_cli);
     g_main_loop_unref(loop);
-
+    
     return nm_cli.return_value;
 }
